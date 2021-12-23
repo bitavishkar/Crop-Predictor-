@@ -1,0 +1,79 @@
+{% extends 'frame.html' %} {% block body %}
+
+<style>
+    html body {
+        background-color:
+            rgb(213, 238, 187)
+    }
+</style>
+<!--Form Section-->
+<br /><br />
+<h2 style="text-align: center; margin: 0px; color: rgb(68,73,65)">
+    <b> Best Sutaible Crop </b>
+</h2>
+<br />
+
+<div style="
+    width: 350px;
+    height: 70rem;
+    margin: 0px auto;
+    color: rgb(68,73,65);
+    border-radius: 25px;
+    padding: 20px 20px;
+  ">
+    <form method="POST" action="{{ url_for('crop_prediction') }}">
+        <div class="form-group">
+            <label for="Nitrogen" style="font-size: 25px"><b>Nitrogen (N)</b></label>
+            <input type="number" class="form-control" id="Nitrogen" name="nitrogen"
+                placeholder="Enter the value  in the range ( 0-140 )  " style="font-weight: bold" required />
+        </div>
+        <div class="form-group">
+            <label for="Phosphorous" style="font-size: 25px"><b>Phosphorous (P) </b></label>
+            <input type="number" class="form-control" id="Phosphorous" name="phosphorous"
+                placeholder="Enter the value in the range (5-145)" style="font-weight: bold" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Potasium" style="font-size: 25px"><b>Potasium (K) </b></label>
+            <input type="number" class="form-control" id="Potasium" name="potasium"
+                placeholder="Enter the value in the range (5-205)" style="font-weight: bold" required />
+        </div>
+        <div class="form-group">
+            <label for="ph" style="font-size: 25px"><b>pH</b></label>
+            <input type="number" step="0.01" class="form-control" id="ph" name="ph"
+                placeholder="Enter the value between 0 -14" style="font-weight: bold" required />
+        </div>
+
+
+        <div class="form-group">
+            <label for="Rainfall" style="font-size: 25px"><b>Rainfall (in mm)</b></label>
+            <input type="number" step="0.01" class="form-control" id="Rainfall" name="rainfall"
+                placeholder="Enter the value" style="font-weight: bold" required />
+        </div>
+        <div class="form-group">
+            <label for="State" style="font-size: 25px"><b>State</b></label>
+            <select onchange="print_city('state', this.selectedIndex);" id="sts" name="stt" class="form-control"
+                style="font-weight: bold; color: black;" required></select>
+            <br />
+            <label for="City" style="font-size: 25px"><b>City</b></label>
+            <select id="state" class="form-control" name="city" style="font-weight: bold; color: black;"
+                required></select>
+            <script language="javascript">
+                print_state("sts");
+            </script>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-outline-success"
+                style="color: black; font-weight: bold; width: 190px; height:50px; border-radius:12px; font-size: 21px;">
+                LETS FIND OUT
+            </button>
+        </div>
+    </form>
+</div>
+
+
+
+<!-- Form section -->
+
+{% endblock %}
